@@ -3,21 +3,23 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <list>
+#include "user.h"
 
 using namespace std;
 
 class FileDatabase
 {
 private:
-    string usersFileName;
-    string equipmentFileName;
-    string borrowingsFileName;
-    char separator;
+    string _usersFileName;
+    string _equipmentFileName;
+    string _rentalFileName;
+    char _separator;
 
 public:
-    FileDatabase(string users = "users.txt", string equipment = "users.txt", string borrowing = "users.txt", char separator = ';');
+    FileDatabase(string users = "users.txt", string equipment = "equipment.txt", string rental = "rental.txt", char separator = ';');
 
-    string GetAllUsers();
+    list<User> GetAllUsers();
 };
 
 #endif // FILEDATABASE_H

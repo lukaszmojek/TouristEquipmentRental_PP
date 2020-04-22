@@ -34,6 +34,12 @@ if(ANDROID)
     mainwindow.ui
     filedatabase.cpp
     filedatabase.h
+    user.cpp
+    user.h
+    reservation.cpp
+    reservation.h
+    equipment.cpp
+    equipment.h
   )
 else()
   add_executable(TouristEquipmentRental
@@ -43,6 +49,12 @@ else()
     mainwindow.ui
     filedatabase.cpp
     filedatabase.h
+    user.cpp
+    user.h
+    reservation.cpp
+    reservation.h
+    equipment.cpp
+    equipment.h
   )
 endif()
 
