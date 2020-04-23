@@ -55,7 +55,7 @@ else()
     reservation.h
     equipment.cpp
     equipment.h
-  )
+    )
 endif()
 
 target_link_libraries(TouristEquipmentRental PRIVATE Qt5::Widgets)

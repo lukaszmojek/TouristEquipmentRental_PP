@@ -7,16 +7,16 @@ using namespace std;
 
 class User
 {
-    int _id;
+    string _id;
     string _firstName;
     string _lastName;
     string _email;
     string _password;
 
 public:
-    User(int id, string firstName, string lastname, string email, string password);
+    User(string id, string firstName, string lastname, string email, string password);
 
-    int Id();
+    string Id();
 
     string FirstName();
 
@@ -24,7 +24,11 @@ public:
 
     string Email();
 
-    string ChangePassword(string oldPassword, string newPassword);
+    bool ChangePassword(string oldPassword, string newPassword);
+
+    stringstream Serialize(char separator);
+
+    static User Deserialize(string serializedUser, char separator);
 };
 
 #endif // USER_H

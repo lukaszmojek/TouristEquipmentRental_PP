@@ -16,7 +16,7 @@ FileDatabase::FileDatabase(string users, string equipment, string rental, char s
 list<User> FileDatabase::GetAllUsers()
 {
     auto users = *new list<User>();
-    auto user = *new User(1, "Basic", "User", "basicuser@o2.pl", "zaq123");
+    auto user = *new User("1", "Basic", "User", "basicuser@o2.pl", "zaq123");
     users.push_back(user);
 
     return users;
