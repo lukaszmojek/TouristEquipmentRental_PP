@@ -1,10 +1,11 @@
-#include "ReservationEquipment.h"
-
 #include <iostream>
 #include <vector>
 #include <sstream>
 #include <algorithm>
 #include <string>
+
+#include "ReservationEquipment.h"
+#include "StringOperations.h"
 
 ReservationEquipment::ReservationEquipment(string id, string reservationId, string equimpentId)
 {
@@ -24,23 +25,9 @@ stringstream ReservationEquipment::Serialize(char separator)
     return reservationEquipment;
 }
 
-vector<string> split(const string& s, char separator)
-{
-   vector<std::string> tokens;
-   string token;
-   istringstream tokenStream(s);
-
-   while (getline(tokenStream, token, separator))
-   {
-      tokens.push_back(token);
-   }
-
-   return tokens;
-}
-
 ReservationEquipment ReservationEquipment::Deserialize(string serializedData, char separator)
 {
-    auto reservationEquipmentDetails = split(serializedData, separator);
+    auto reservationEquipmentDetails = StringOperations::Split(serializedData, separator);
 
     auto reservationEquipment = * new ReservationEquipment(
             reservationEquipmentDetails[0],

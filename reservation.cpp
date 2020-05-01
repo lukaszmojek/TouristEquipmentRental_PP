@@ -3,8 +3,10 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+
 #include "Reservation.h"
 #include "Equipment.h"
+#include "StringOperations.h"
 
 Reservation::Reservation(string id, string userId, string startDate, string endDate)
 {
@@ -26,23 +28,9 @@ stringstream Reservation::Serialize(char separator)
     return reservation;
 }
 
-vector<string> split(const string& s, char separator)
-{
-   vector<std::string> tokens;
-   string token;
-   istringstream tokenStream(s);
-
-   while (getline(tokenStream, token, separator))
-   {
-      tokens.push_back(token);
-   }
-
-   return tokens;
-}
-
 Reservation Reservation::Deserialize(string serializedData, char separator)
 {
-    auto reservationDetails = split(serializedData, separator);
+    auto reservationDetails = StringOperations::Split(serializedData, separator);
 
     auto reservation = * new Reservation(
             reservationDetails[0],

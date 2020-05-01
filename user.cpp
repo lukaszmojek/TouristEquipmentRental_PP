@@ -2,7 +2,9 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+
 #include "User.h"
+#include "StringOperations.h"
 
 User::User(string id, string firstName, string lastname, string email, string password)
 {
@@ -60,23 +62,9 @@ stringstream User::Serialize(char separator)
     return user;
 }
 
-vector<string> split(const string& s, char separator)
-{
-   vector<std::string> tokens;
-   string token;
-   istringstream tokenStream(s);
-
-   while (getline(tokenStream, token, separator))
-   {
-      tokens.push_back(token);
-   }
-
-   return tokens;
-}
-
 User User::Deserialize(string serializedData, char separator)
 {
-    auto userDetails = split(serializedData, separator);
+    auto userDetails = StringOperations::Split(serializedData, separator);
 
     auto user = * new User(
             userDetails[0],

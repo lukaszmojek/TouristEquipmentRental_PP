@@ -40,11 +40,12 @@ if(ANDROID)
     Reservation.h
     Equipment.cpp
     Equipment.h
-    Array.h
     FileOperations.cpp
     FileOperations.h
     ReservationEquipment.cpp
     ReservationEquipment.h
+    StringOperations.cpp
+    StringOperations.h
   )
 else()
   add_executable(TouristEquipmentRental
@@ -60,11 +61,12 @@ else()
     Reservation.h
     Equipment.cpp
     Equipment.h
-    Array.h
     FileOperations.cpp
     FileOperations.h
     ReservationEquipment.cpp
     ReservationEquipment.h
+    StringOperations.cpp
+    StringOperations.h
   )
 endif()
 

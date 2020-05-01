@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <string>
 #include "Equipment.h"
+#include "StringOperations.h"
 
 Equipment::Equipment(string id, string name)
 {
@@ -31,23 +32,9 @@ stringstream Equipment::Serialize(char separator)
     return reservationEquipment;
 }
 
-vector<string> split(const string& s, char separator)
-{
-   vector<std::string> tokens;
-   string token;
-   istringstream tokenStream(s);
-
-   while (getline(tokenStream, token, separator))
-   {
-      tokens.push_back(token);
-   }
-
-   return tokens;
-}
-
 Equipment Equipment::Deserialize(string serializedData, char separator)
 {
-    auto equipmentDetails = split(serializedData, separator);
+    auto equipmentDetails = StringOperations::Split(serializedData, separator);
 
     auto equipment = * new Equipment(
             equipmentDetails[0],
