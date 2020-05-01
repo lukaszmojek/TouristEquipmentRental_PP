@@ -3,19 +3,25 @@
 
 #include <iostream>
 #include <list>
-#include "equipment.h"
+
+#include "Equipment.h"
 
 using namespace std;
 
 class Reservation
 {
     string _id;
+    string _userId;
     string _startDate;
     string _endDate;
     list<Equipment> _equipment;
 
 public:
-    Reservation();
+    Reservation(string id, string userId, string startDate, string endDate);
+
+    stringstream Serialize(char separator);
+
+    static Reservation Deserialize(string serializedData, char separator);
 };
 
 #endif // RESERVATION_H

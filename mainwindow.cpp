@@ -17,5 +17,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_lineEdit_2_textChanged(const QString &arg1)
 {
-    auto users = this->fileDatabase.GetAllUsers();
+
 }

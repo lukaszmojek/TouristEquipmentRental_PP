@@ -7,11 +7,19 @@ using namespace std;
 
 class Equipment
 {
-    int _id;
+    string _id;
     string _name;
 
 public:
-    Equipment(int id, string name);
+    Equipment(string id, string name);
+
+    string Id();
+
+    string Name();
+
+    stringstream Serialize(char separator);
+
+    static Equipment Deserialize(string serializedData, char separator);
 };
 
 #endif // EQUIPMENT_H

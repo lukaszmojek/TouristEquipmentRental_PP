@@ -32,14 +32,19 @@ if(ANDROID)
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    filedatabase.cpp
-    filedatabase.h
-    user.cpp
-    user.h
-    reservation.cpp
-    reservation.h
-    equipment.cpp
-    equipment.h
+    FileDatabase.cpp
+    FileDatabase.h
+    User.cpp
+    User.h
+    Reservation.cpp
+    Reservation.h
+    Equipment.cpp
+    Equipment.h
+    Array.h
+    FileOperations.cpp
+    FileOperations.h
+    ReservationEquipment.cpp
+    ReservationEquipment.h
   )
 else()
   add_executable(TouristEquipmentRental
@@ -47,15 +52,20 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    filedatabase.cpp
-    filedatabase.h
-    user.cpp
-    user.h
-    reservation.cpp
-    reservation.h
-    equipment.cpp
-    equipment.h
-    )
+    FileDatabase.cpp
+    FileDatabase.h
+    User.cpp
+    User.h
+    Reservation.cpp
+    Reservation.h
+    Equipment.cpp
+    Equipment.h
+    Array.h
+    FileOperations.cpp
+    FileOperations.h
+    ReservationEquipment.cpp
+    ReservationEquipment.h
+  )
 endif()
 
 target_link_libraries(TouristEquipmentRental PRIVATE Qt5::Widgets)

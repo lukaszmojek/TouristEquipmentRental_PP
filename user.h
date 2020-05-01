@@ -28,7 +28,7 @@ public:
 
     stringstream Serialize(char separator);
 
-    static User Deserialize(string serializedUser, char separator);
+    static User Deserialize(string serializedData, char separator);
 };
 
 #endif // USER_H

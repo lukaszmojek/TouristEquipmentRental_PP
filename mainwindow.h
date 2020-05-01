@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "filedatabase.h"
+#include "FileDatabase.h"
 
 using namespace std;
 

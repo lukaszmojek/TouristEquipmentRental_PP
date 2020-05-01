@@ -2,8 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
-#include "user.h"
-#include "helpers.h"
+#include "User.h"
 
 User::User(string id, string firstName, string lastname, string email, string password)
 {
@@ -61,13 +60,13 @@ stringstream User::Serialize(char separator)
     return user;
 }
 
-vector<string> split(const string& s, char delimiter)
+vector<string> split(const string& s, char separator)
 {
    vector<std::string> tokens;
    string token;
    istringstream tokenStream(s);
 
-   while (getline(tokenStream, token, delimiter))
+   while (getline(tokenStream, token, separator))
    {
       tokens.push_back(token);
    }
@@ -75,11 +74,16 @@ vector<string> split(const string& s, char delimiter)
    return tokens;
 }
 
-User User::Deserialize(string serializedUser, char separator)
+User User::Deserialize(string serializedData, char separator)
 {
-    auto userDetails = split(serializedUser, separator);
+    auto userDetails = split(serializedData, separator);
 
-    auto user = * new User(userDetails[0], userDetails[1], userDetails[2], userDetails[3], userDetails[4]);
+    auto user = * new User(
+            userDetails[0],
+            userDetails[1],
+            userDetails[2],
+            userDetails[3],
+            userDetails[4]);
 
     return user;
 }
