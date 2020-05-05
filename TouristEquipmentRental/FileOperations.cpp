@@ -9,7 +9,7 @@ fstream FileOperations::openFile(string fileName, ios_base::openmode fileMode)
 
     if (!file.is_open())
     {
-        throw new exception(); //TODO: Change this
+        //throw new exception(); //TODO: Change this
     }
 
     return file;

@@ -18,7 +18,7 @@ FileDatabase::FileDatabase(
     _reservationEquipmentFileName = reservationEquipmentFileName;
     _separator = separator;
     _fileOperations = * new FileOperations();
-    Initialize();
+    //Initialize();
 }
 
 void FileDatabase::Initialize()
