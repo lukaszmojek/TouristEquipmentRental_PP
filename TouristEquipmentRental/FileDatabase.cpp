@@ -18,7 +18,7 @@ FileDatabase::FileDatabase(
     _reservationEquipmentFileName = reservationEquipmentFileName;
     _separator = separator;
     _fileOperations = * new FileOperations();
-    //Initialize();
+    Initialize();
 }
 
 void FileDatabase::Initialize()
@@ -34,11 +34,10 @@ list<DATA_TYPE> FileDatabase::ReadData(string fileName)
 {
     auto file = _fileOperations.openFile(fileName, ios::in);
     auto data = * new list<DATA_TYPE>();
+    string serializedRecord;
 
     while(!file.eof())
     {
-        string serializedRecord;
-
         getline(file, serializedRecord);
         auto record = DATA_TYPE::Deserialize(serializedRecord, _separator);
 
