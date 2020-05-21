@@ -17,6 +17,12 @@ public:
     stringstream Serialize(char separator);
 
     static ReservationEquipment Deserialize(string serializedData, char separator);
+
+    string Id();
+
+    string ReservationId();
+
+    string EquipmentId();
 };
 
 #endif // RESERVATIONEQUIPMENT_H
