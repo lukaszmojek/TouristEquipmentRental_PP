@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DatabaseOperator.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="FileDatabase.cpp" />
     <ClCompile Include="FileOperations.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DatabaseOperator.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="FileDatabase.h" />
     <ClInclude Include="FileOperations.h" />
