@@ -30,6 +30,8 @@ public:
     string StartDate();
 
     string EndDate();
+
+    void AssignEquipmentToReservation(list<Equipment> equipment);
 };
 
 #endif // RESERVATION_H

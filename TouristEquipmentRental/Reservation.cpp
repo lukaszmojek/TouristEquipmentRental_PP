@@ -60,3 +60,11 @@ string Reservation::EndDate()
 {
     return _endDate;
 }
+
+void Reservation::AssignEquipmentToReservation(list<Equipment> equipment)
+{
+    for (auto eq : equipment)
+    {
+        _equipment.push_back(eq);
+    }
+}
