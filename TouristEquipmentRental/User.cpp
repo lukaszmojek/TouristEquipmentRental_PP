@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "User.h"
+#include "Reservation.h"
 #include "StringOperations.h"
 
 User::User(string id, string firstName, string lastname, string email, string password)
@@ -36,6 +37,11 @@ string User:: Email()
     return _email;
 }
 
+string User::Password()
+{
+    return _password;
+}
+
 bool User::ChangePassword(string oldPassword, string newPassword)
 {
     //TODO: add hashing
@@ -47,6 +53,11 @@ bool User::ChangePassword(string oldPassword, string newPassword)
     }
 
     return false;
+}
+
+void User::AssignReservationToUser(Reservation reservation)
+{
+    _reservations.push_back(reservation);
 }
 
 stringstream User::Serialize(char separator)

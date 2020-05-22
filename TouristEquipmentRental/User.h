@@ -2,6 +2,7 @@
 #define USER_H
 
 #include <iostream>
+#include "Reservation.h"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class User
     string _lastName;
     string _email;
     string _password;
+    list<Reservation> _reservations;
 
 public:
     User(string id, string firstName, string lastname, string email, string password);
@@ -24,7 +26,11 @@ public:
 
     string Email();
 
+    string Password();
+
     bool ChangePassword(string oldPassword, string newPassword);
+
+    void AssignReservationToUser(Reservation reservation);
 
     stringstream Serialize(char separator);
 
