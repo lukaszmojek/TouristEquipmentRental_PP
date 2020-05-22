@@ -21,6 +21,26 @@ FileDatabase::FileDatabase(
     Initialize();
 }
 
+list<User> FileDatabase::GetUsers()
+{
+    return _users;
+}
+
+list<Reservation> FileDatabase::GetReservations()
+{
+    return _reservations;
+}
+
+list<ReservationEquipment> FileDatabase::GetReservationEquimpent()
+{
+    return _reservationsEquipment;
+}
+
+list<Equipment> FileDatabase::GetEquimpent()
+{
+    return _equimpent;
+}
+
 void FileDatabase::Initialize()
 {
     _users = ReadData<User>(_usersFileName);

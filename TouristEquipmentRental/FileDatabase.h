@@ -40,6 +40,14 @@ public:
             string reservationsFileName = "reservations.txt",
             string reservationEquipmentFileName = "reservation_equimpent.txt",
             char separator = ';');
+
+    list<User> GetUsers();
+
+    list<Equipment> GetEquimpent();
+
+    list<Reservation> GetReservations();
+
+    list<ReservationEquipment> GetReservationEquimpent();
 };
 
 #endif // FILEDATABASE_H
