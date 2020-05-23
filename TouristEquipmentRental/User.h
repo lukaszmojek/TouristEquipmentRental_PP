@@ -13,10 +13,12 @@ class User
     string _lastName;
     string _email;
     string _password;
+    bool _activated;
+    string _type;
     list<Reservation> _reservations;
 
 public:
-    User(string id, string firstName, string lastname, string email, string password);
+    User(string id, string firstName, string lastname, string email, string password, string activated);
 
     string Id();
 
@@ -27,6 +29,10 @@ public:
     string Email();
 
     string Password();
+
+    bool Activated();
+
+    string Type();
 
     bool ChangePassword(string oldPassword, string newPassword);
 

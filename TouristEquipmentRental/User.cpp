@@ -4,10 +4,11 @@
 #include <vector>
 
 #include "User.h"
+#include "UserType.h"
 #include "Reservation.h"
 #include "StringOperations.h"
 
-User::User(string id, string firstName, string lastname, string email, string password)
+User::User(string id, string firstName, string lastname, string email, string password, string activated)
 {
     _id = id;
     _firstName = firstName;
@@ -15,6 +16,8 @@ User::User(string id, string firstName, string lastname, string email, string pa
     _email = email;
     //TODO: add hashing
     _password = password;
+    _activated = (activated == "1");
+    _type = (id[0] == 'U') ? "Standard" : "Administrator";
 }
 
 string User::Id()
@@ -40,6 +43,11 @@ string User:: Email()
 string User::Password()
 {
     return _password;
+}
+
+bool User::Activated()
+{
+    return _activated;
 }
 
 bool User::ChangePassword(string oldPassword, string newPassword)
@@ -68,7 +76,8 @@ stringstream User::Serialize(char separator)
          << _firstName << separator
          << _lastName << separator
          << _email << separator
-         << _password;
+         << _password << separator
+         << _activated;
 
     return user;
 }
@@ -82,7 +91,8 @@ User User::Deserialize(string serializedData, char separator)
             userDetails[1],
             userDetails[2],
             userDetails[3],
-            userDetails[4]);
+            userDetails[4],
+            userDetails[5]);
 
     return user;
 }

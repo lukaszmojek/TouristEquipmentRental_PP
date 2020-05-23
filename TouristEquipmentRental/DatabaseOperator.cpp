@@ -1,5 +1,4 @@
 #include "DatabaseOperator.h"
-#include <vector>
 
 DatabaseOperator::DatabaseOperator(FileDatabase databaseContext)
 {
@@ -12,7 +11,13 @@ User DatabaseOperator::GetUser(string email, string password)
 	{
 		if (user.Email() == email & user.Password() == password)
 		{
-			return user;
+			if (user.Activated() != 0) {
+				return user;
+			}
+			else
+			{
+				throw exception("User not yet activated!");
+			}
 		}
 	}
 
