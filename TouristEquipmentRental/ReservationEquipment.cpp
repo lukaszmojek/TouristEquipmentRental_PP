@@ -36,3 +36,18 @@ ReservationEquipment ReservationEquipment::Deserialize(string serializedData, ch
 
     return reservationEquipment;
 }
+
+string ReservationEquipment::Id()
+{
+	return _id;
+}
+
+string ReservationEquipment::ReservationId()
+{
+    return _reservationId;
+}
+
+string ReservationEquipment::EquipmentId()
+{
+    return _equipmentId;
+}

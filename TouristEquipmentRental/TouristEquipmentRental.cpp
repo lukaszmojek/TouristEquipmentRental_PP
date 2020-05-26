@@ -8,7 +8,7 @@
 #include "FileDatabase.h"
 #include "PrimmaryView.h"
 #include "UserPanel.h"
-
+#include "DatabaseOperator.h"
 
 using namespace std;
 using namespace std::this_thread; // sleep_for, sleep_until
@@ -26,6 +26,30 @@ void setColor(int nr) {
 int main(int argc, char** argv)
 {	
     auto fileDatabase = new FileDatabase();
+
+	auto databaseOperator = new DatabaseOperator(*fileDatabase);
+
+	try
+	{
+		auto user = databaseOperator->GetUser("ratatata@gmail.com", "kowalstwo");
+		//auto user = databaseOperator->GetUser("Test@test.com", "dupa123");
+		//auto user = databaseOperator->GetUser("dawid.blacha@gmail.com", "zaq123");
+
+		auto reservations = databaseOperator->GetUserReservations(user.Id());
+
+		for (auto reservation : reservations)
+		{
+			auto reservationEquipment = databaseOperator->GetReservationEquipment(reservation.Id());
+			reservation.AssignEquipmentToReservation(reservationEquipment);
+			user.AssignReservationToUser(reservation);
+		}
+
+		;
+	}
+	catch (exception e)
+	{
+		cout << e.what();
+	}
 
 	/* FONT */
 	CONSOLE_FONT_INFOEX cfi;
@@ -81,6 +105,9 @@ int main(int argc, char** argv)
 	}
 
 
-	
-	return 0;
+
+    
+
+    return 0;
+
 }

@@ -39,10 +39,14 @@
     <ClCompile Include="User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="PrimmaryView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UserPanel.cpp">
+=======
+    <ClCompile Include="DatabaseOperator.cpp">
+>>>>>>> 7e25b82de0a49077a8f46910347ddcd558574d98
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,10 +72,14 @@
     <ClInclude Include="User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="PrimmaryView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UserPanel.h">
+=======
+    <ClInclude Include="DatabaseOperator.h">
+>>>>>>> 7e25b82de0a49077a8f46910347ddcd558574d98
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

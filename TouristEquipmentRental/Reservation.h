@@ -22,6 +22,16 @@ public:
     stringstream Serialize(char separator);
 
     static Reservation Deserialize(string serializedData, char separator);
+
+    string Id();
+
+    string UserId();
+
+    string StartDate();
+
+    string EndDate();
+
+    void AssignEquipmentToReservation(list<Equipment> equipment);
 };
 
 #endif // RESERVATION_H

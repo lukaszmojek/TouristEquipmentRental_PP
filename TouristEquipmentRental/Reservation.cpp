@@ -40,3 +40,31 @@ Reservation Reservation::Deserialize(string serializedData, char separator)
 
     return reservation;
 }
+
+string Reservation::Id()
+{
+    return _id;
+}
+
+string Reservation::UserId()
+{
+    return _userId;
+}
+
+string Reservation::StartDate()
+{
+    return _startDate;
+}
+
+string Reservation::EndDate()
+{
+    return _endDate;
+}
+
+void Reservation::AssignEquipmentToReservation(list<Equipment> equipment)
+{
+    for (auto eq : equipment)
+    {
+        _equipment.push_back(eq);
+    }
+}

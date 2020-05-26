@@ -1,0 +1,6 @@
+EQ001;Namiot
+EQ002;Spiwor
+EQ003;Plecak
+EQ004;Ponton
+EQ005;Radiotelefony
+EQ401;Telefon satelitarny
