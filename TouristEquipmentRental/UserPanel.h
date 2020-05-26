@@ -6,8 +6,11 @@
 using namespace std;
 
 class UserPanel {
+
 public:
+
 	void RenderUserMenu();
+
 	int Select();
 };
 

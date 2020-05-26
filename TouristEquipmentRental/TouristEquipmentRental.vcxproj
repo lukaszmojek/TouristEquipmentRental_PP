@@ -151,6 +151,8 @@
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="FileDatabase.cpp" />
     <ClCompile Include="FileOperations.cpp" />
+    <ClCompile Include="GlobalOperator.cpp" />
+    <ClCompile Include="SignInUpView.cpp" />
     <ClCompile Include="Reservation.cpp" />
     <ClCompile Include="ReservationEquipment.cpp" />
     <ClCompile Include="StringOperations.cpp" />
@@ -164,6 +166,8 @@
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="FileDatabase.h" />
     <ClInclude Include="FileOperations.h" />
+    <ClInclude Include="GlobalOperator.h" />
+    <ClInclude Include="SignInUpView.h" />
     <ClInclude Include="Reservation.h" />
     <ClInclude Include="ReservationEquipment.h" />
     <ClInclude Include="StringOperations.h" />

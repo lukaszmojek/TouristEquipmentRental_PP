@@ -26,9 +26,11 @@ void UserPanel::RenderUserMenu() {
         SetConsoleTextAttribute(hConsole, 11);
     }
     int UserPanel::Select() {
+
         string Log, Reg;
-        cout << "Przejdz do operacji nr: ";
         char choice;
+
+        cout << "Przejdz do operacji nr: ";
         cin >> choice;
 
         switch (choice)
@@ -49,7 +51,7 @@ void UserPanel::RenderUserMenu() {
 
         default: cout << "Nie ma takiej opcji w menu!";
         };
+
         system("cls");
- 
 
 }

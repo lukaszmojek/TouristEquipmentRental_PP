@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include "User.h"
-#include "UserType.h"
+//#include "UserType.h"
 #include "Reservation.h"
 #include "StringOperations.h"
 
