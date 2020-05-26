@@ -13,8 +13,7 @@ int main(int argc, char** argv)
 {	
 	GlobalOperator style;
 	PrimmaryView Start;
-	SignInUpView Login;
-	SignInUpView Register;
+	SignInUpView Login, Register;
 
 	UserPanel UserPanel;
 
@@ -24,9 +23,13 @@ int main(int argc, char** argv)
 	
 	style.SetFont(24,0);
 
+	
+	//for (int i = 0; i < 255; i++) {
+	//	style.SetColor(i);
+	//	cout << "KOLOR NUMER " << i << endl;
+	//}
 
 	Start.RenderStartView();
-	if (Start.MenuSelect() == 1) {
 		system("cls");
 		Login.RenderLoginView();
 		/*Sgin In*/
@@ -36,12 +39,16 @@ int main(int argc, char** argv)
 			if ((user.Id()[0] == 'A') && (user.Activated() == true)) {
 				style.Delay(1.5);
 				cout << "Zalogowano pomyslnie do panelu administratora" << endl;
+				cout << endl;
+				system("cls");
 				//AdminPanel.RenderAdminMenu();
-			}
+			} 
 			else {
 				style.Delay(1.5);
-				cout << "Zalogowano pomyœlnie do panelu uzytkownika" << endl;
-				UserPanel.RenderUserMenu();
+				cout << endl;
+				cout << "Zalogowano pomyslnie do panelu uzytkownika" << endl;
+
+				UserPanel.RenderUserMenu(user);
 			}	
 		}
 		catch (exception e)
@@ -62,5 +69,5 @@ int main(int argc, char** argv)
 			
 		}
 		return 0;
-	}
+	
 }

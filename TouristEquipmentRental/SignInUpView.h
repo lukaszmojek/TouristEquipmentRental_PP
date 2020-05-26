@@ -7,6 +7,7 @@ using namespace std;
 
 class SignInUpView
 {
+private:
 	string	_TypedID,
 			_TypedPassword,
 			_TypedFirstName,
@@ -14,6 +15,7 @@ class SignInUpView
 			_TypedEmail;
 
 	GlobalOperator style;
+
 
 public:
 	string GetId();

@@ -5,11 +5,12 @@ using namespace std;
 
 
 void PrimmaryView::RenderStartView() {
+    char choice;
 
     style.SetColor(13);
 
     style.CreateSeparator(30, '*');
-        cout << "   WYPOZYCZALNIA KAJAKOW " << endl; cout << endl;
+    cout << "   WYPOZYCZALNIA KAJAKOW " << endl << endl;
     style.CreateSeparator(30, '*');
 
     style.SetColor(11);
@@ -23,14 +24,15 @@ void PrimmaryView::RenderStartView() {
     cout << endl;
 
     style.SetColor(11);
+    cout << "Przejdz do operacji nr: ";
+
+    cin >> choice;
+    system("cls");
+    MenuSelect(choice);
 }
-int PrimmaryView::MenuSelect() {
+int PrimmaryView::MenuSelect(char choice) {
 
     string Log, Reg;
-    char choice;
-
-    cout << "Przejdz do operacji nr: ";
-    cin >> choice;
 
     switch (choice)
     {

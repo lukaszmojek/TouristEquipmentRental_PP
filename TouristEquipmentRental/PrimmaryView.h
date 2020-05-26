@@ -13,7 +13,7 @@ public:
 
 	void RenderStartView();
 
-    int MenuSelect();
+    int MenuSelect(char);
 	
 };
 

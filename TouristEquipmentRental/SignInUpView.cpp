@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SignInUpView.h"
 #include "GlobalOperator.h"
-
+#include <conio.h>
 
 using namespace std;
 
@@ -28,6 +28,7 @@ string SignInUpView::GetEmail() {
 void SignInUpView::RenderLoginView() {
 
     string email, password;
+    char c = ' ';
 
     style.SetColor(13);
     style.CreateSeparator(30, '*');
@@ -39,15 +40,23 @@ void SignInUpView::RenderLoginView() {
     cin >> email;
     cout << endl;
     cout << " HASLO: ";
-    cin >> password;
+    while (c != 13) {       //TODO: Naprawic backspace
+        c = _getch();
+            if (c != 13) {
+                password += c;
+                cout << "*";
+            }
+        
+    }
     cout << endl;
 
     _TypedEmail = email;
     _TypedPassword = password;
 
     style.SetColor(11);
-    cout << "Sprawdzanie poprawnoscii wprowadzonych danych..." << endl;
     cout << endl;
+    cout << "Sprawdzanie poprawnoscii wprowadzonych danych..." << endl;
+    style.CreateSeparator(50, '-');
 }
 
 void SignInUpView::RenderRegisterView() {
@@ -57,6 +66,8 @@ void SignInUpView::RenderRegisterView() {
             firstname,
             lastname,
             email;
+
+    char c = ' ';
 
     style.SetColor(5);
     style.CreateSeparator(30, '*');
@@ -81,12 +92,18 @@ void SignInUpView::RenderRegisterView() {
     cout << endl;
 
     cout << " HASLO: ";
+    while (c != 13) {
+        c = _getch();
+        if (c != 13) {
+            password += c;
+            cout << "*";
+        }
+
+    }
+
     cin >> password;
     cout << endl;
 
-    cout << " POWTORZ HASLO: ";
-    cin >> password;
-    cout << endl;
 
     _TypedID        = userID;
     _TypedPassword  = password;
@@ -95,6 +112,7 @@ void SignInUpView::RenderRegisterView() {
     _TypedEmail     = email;
 
     style.SetColor(11);
-    cout << "Sprawdzanie poprawnoscii wprowadzonych danych..." << endl;
     cout << endl;
+    cout << "Sprawdzanie poprawnoscii wprowadzonych danych..." << endl;
+    style.CreateSeparator(50, '-');
 }
