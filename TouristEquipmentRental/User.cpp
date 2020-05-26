@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <string>
 #include <vector>
-
 #include "User.h"
 #include "StringOperations.h"
 
