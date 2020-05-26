@@ -1,0 +1,56 @@
+[33mcommit 6d14d19122c2c067254477ddb9146e61653078d4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: przemyslawsaja@gmail.com <mykukox1818>
+Date:   Tue May 26 11:35:41 2020 +0200
+
+    PrimmaryView,UserPanel added.
+
+[33mcommit 5a62f2f640956c5e2c72a43191074e4e4f21c730[m
+Merge: 1899302 73b82f5
+Author: Łukasz Mojek <lukasz.mojek@gmail.com>
+Date:   Tue May 5 09:17:11 2020 +0300
+
+    Merge pull request #2 from lukaszmojek/dev_getting_rid_of_qt
+    
+    Got rid of UI part since the team wants to do everything in console
+
+[33mcommit 73b82f593c77439764ec51a520cbd3cc45f8df59[m
+Author: Łukasz Mojek <lukasz.mojek@gmail.com>
+Date:   Tue May 5 08:10:52 2020 +0200
+
+    Created new project using Visual Studio
+
+[33mcommit 36198109ce2fe6b074dfb088a9909f5c428798f8[m
+Author: Łukasz Mojek <lukasz.mojek@gmail.com>
+Date:   Fri May 1 14:13:13 2020 +0200
+
+    Moved split method to StringOperations class
+
+[33mcommit 498eba902895cea8220b30eb0d1c96ab1843be1d[m
+Author: Łukasz Mojek <lukasz.mojek@gmail.com>
+Date:   Fri May 1 14:02:29 2020 +0200
+
+    Implemented advanced structure for file database
+
+[33mcommit 883745f98a39bd300577a6ab2e2597db499c08a8[m
+Author: Łukasz Mojek <lukasz.mojek@gmail.com>
+Date:   Thu Apr 23 23:42:29 2020 +0200
+
+    Added serialization and deserialization for user class
+
+[33mcommit 616af495ffc3b214ca8dd0c702783ecf4a4d1451[m
+Author: Łukasz Mojek <lukasz.mojek@gmail.com>
+Date:   Thu Apr 23 23:40:11 2020 +0200
+
+    Added serialization and deserialization for user class
+
+[33mcommit ba4254527e41c2e66ab95e3cddb458dacd672624[m
+Author: Łukasz Mojek <lukasz.mojek@gmail.com>
+Date:   Wed Apr 22 23:29:20 2020 +0200
+
+    Basic dto classes for operating on user, reservation and equipment data were introduced
+
+[33mcommit 18993021e576da514c33502d5fe358de725bd121[m
+Author: lukasz.mojek <lukasz.mojek@gmail.com>
+Date:   Wed Apr 1 19:21:41 2020 +0200
+
+    Initial commit

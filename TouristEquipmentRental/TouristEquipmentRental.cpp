@@ -37,12 +37,11 @@ int main(int argc, char** argv)
 	cfi.FontWeight = FW_NORMAL;
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
 
-
 	PrimmaryView Start;
 	UserPanel UserPanel;
 
 	Start.RenderStartView();
-	if (Start.Wybor() == 1) {
+	if (Start.Select() == 1) {
 		system("cls");
 		Start.LoginView();
 		/*Logowanie administratora*/
@@ -52,7 +51,7 @@ int main(int argc, char** argv)
 			sleep(1.5);
 			cout << "Zalogowano pomyslnie do panelu administratora!" << endl;
 			sleep(1.8);
-
+			//TODO:RenderAdminPanel();
 			system("cls");
 		}
 		/*Logowanie u¿ytkownika*/

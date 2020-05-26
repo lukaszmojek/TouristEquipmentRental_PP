@@ -8,7 +8,7 @@ using namespace std;
 class UserPanel {
 public:
 	void RenderUserMenu();
-	int Wybor();
+	int Select();
 };
 
 #endif // UserPanel_H

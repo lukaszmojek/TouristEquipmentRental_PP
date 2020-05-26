@@ -25,7 +25,7 @@ void UserPanel::RenderUserMenu() {
         cout << endl;
         SetConsoleTextAttribute(hConsole, 11);
     }
-    int UserPanel::Wybor() {
+    int UserPanel::Select() {
         string Log, Reg;
         cout << "Przejdz do operacji nr: ";
         char choice;
@@ -38,10 +38,12 @@ void UserPanel::RenderUserMenu() {
             break;
 
         case '2':
-            return 0;
+            return 2;
             break;
-
         case '3':
+            return 3;
+            break;
+        case '4':
             exit(0);
             break;
 

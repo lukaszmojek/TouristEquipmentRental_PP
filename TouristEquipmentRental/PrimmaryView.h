@@ -21,7 +21,7 @@ public:
 
 	void RenderStartView();
 
-	int Wybor();
+	int Select();
 
 	void LoginView();
 
