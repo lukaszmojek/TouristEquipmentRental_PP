@@ -23,12 +23,6 @@ int main(int argc, char** argv)
 	
 	style.SetFont(24,0);
 
-	
-	//for (int i = 0; i < 255; i++) {
-	//	style.SetColor(i);
-	//	cout << "KOLOR NUMER " << i << endl;
-	//}
-
 	Start.RenderStartView();
 		system("cls");
 		Login.RenderLoginView();
@@ -39,15 +33,11 @@ int main(int argc, char** argv)
 			if ((user.Id()[0] == 'A') && (user.Activated() == true)) {
 				style.Delay(1.5);
 				cout << "Zalogowano pomyslnie do panelu administratora" << endl;
-				cout << endl;
-				system("cls");
 				//AdminPanel.RenderAdminMenu();
 			} 
-			else {
+			if ((user.Id()[0] == 'U') && (user.Activated() == true)) {
 				style.Delay(1.5);
-				cout << endl;
 				cout << "Zalogowano pomyslnie do panelu uzytkownika" << endl;
-
 				UserPanel.RenderUserMenu(user);
 			}	
 		}

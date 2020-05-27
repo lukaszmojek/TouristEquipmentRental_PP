@@ -10,7 +10,7 @@ void PrimmaryView::RenderStartView() {
     style.SetColor(13);
 
     style.CreateSeparator(30, '*');
-    cout << "   WYPOZYCZALNIA KAJAKOW " << endl << endl;
+    cout << " WYPOZYCZALNIA SPRZETU TURYSTYCZNEGO " << endl << endl;
     style.CreateSeparator(30, '*');
 
     style.SetColor(11);

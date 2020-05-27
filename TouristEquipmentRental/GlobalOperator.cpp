@@ -20,15 +20,14 @@ void GlobalOperator::SetColor(int nr) {
 }
 
 void GlobalOperator::SetFont(int h, int w) {
-	/* FONT */
-	CONSOLE_FONT_INFOEX cfi;
-	cfi.cbSize = sizeof(cfi);
-	cfi.nFont = 0;
-	cfi.dwFontSize.X = w;                   // Width 
-	cfi.dwFontSize.Y = h;                  // Height
-	cfi.FontFamily = FF_DONTCARE;
-	cfi.FontWeight = FW_NORMAL;
-	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
+	CONSOLE_FONT_INFOEX consoleFont;
+	consoleFont.cbSize = sizeof(consoleFont);
+	consoleFont.nFont = 0;
+	consoleFont.dwFontSize.X = w;                   // Width 
+	consoleFont.dwFontSize.Y = h;                  // Height
+	consoleFont.FontFamily = FF_DONTCARE;
+	consoleFont.FontWeight = FW_NORMAL;
+	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &consoleFont);
 }
 void GlobalOperator::CreateSeparator(int length, char sign) {
 	cout << setfill(sign) << setw(length) << sign << endl; cout << endl;
