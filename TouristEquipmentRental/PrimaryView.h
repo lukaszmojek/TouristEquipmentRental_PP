@@ -2,19 +2,19 @@
 #define PrimmaryView_H
 #include <iostream>
 #include "GlobalOperator.h"
+#include "SignInUpView.h"
 
 using namespace std;
 
-class PrimmaryView
+class PrimaryView
 {
+private:
 	GlobalOperator style;
+	
+	void MenuSelect(char, SignInUpView signInOnView);
 
 public:
-
-	void RenderStartView();
-
-    int MenuSelect(char);
-	
+	void RenderStartView(SignInUpView signInOnView);
 };
 
 #endif //PrimmaryView_H

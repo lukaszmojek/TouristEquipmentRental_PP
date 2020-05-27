@@ -1,10 +1,10 @@
-#include "PrimmaryView.h"
+#include "PrimaryView.h"
 #include <string>
 #include <iostream>
+
 using namespace std;
 
-
-void PrimmaryView::RenderStartView() {
+void PrimaryView::RenderStartView(SignInUpView signInUpView) {
     char choice;
 
     style.SetColor(13);
@@ -14,13 +14,13 @@ void PrimmaryView::RenderStartView() {
     style.CreateSeparator(30, '*');
 
     style.SetColor(11);
-        cout << "  > Wybierz operacje < " << endl;
-        cout << endl;
+    cout << "  > Wybierz operacje < " << endl;
+    cout << endl;
 
     style.SetColor(14);
-        cout << "1) Logowanie" << endl;
-        cout << "2) Rejestracja" << endl;
-        cout << "3) Wyjdz" << endl;
+    cout << "1) Logowanie" << endl;
+    cout << "2) Rejestracja" << endl;
+    cout << "3) Wyjdz" << endl;
     cout << endl;
 
     style.SetColor(11);
@@ -28,27 +28,31 @@ void PrimmaryView::RenderStartView() {
 
     cin >> choice;
     system("cls");
-    MenuSelect(choice);
+
+    MenuSelect(choice, signInUpView);
 }
-int PrimmaryView::MenuSelect(char choice) {
+
+void PrimaryView::MenuSelect(char choice, SignInUpView signInUpView) {
 
     string Log, Reg;
 
     switch (choice)
     {
     case '1':
-        return 1;
+        signInUpView.RenderLoginView();
         break;
 
     case '2':
-        return 0;
+        signInUpView.RenderRegisterView();
         break;
 
     case '3':
         exit(0);
         break;
 
-    default: cout << "Nie ma takiej opcji w menu!";
+    default: 
+        cout << "Nie ma takiej opcji w menu!";
     };
+
     system("cls");
 }
