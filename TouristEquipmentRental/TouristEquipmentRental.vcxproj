@@ -157,8 +157,9 @@
     <ClCompile Include="ReservationEquipment.cpp" />
     <ClCompile Include="StringOperations.cpp" />
     <ClCompile Include="TouristEquipmentRental.cpp" />
+    <ClCompile Include="UnitOfView.cpp" />
     <ClCompile Include="User.cpp" />
-    <ClCompile Include="PrimmaryView.cpp" />
+    <ClCompile Include="PrimaryView.cpp" />
     <ClCompile Include="UserPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,8 +172,9 @@
     <ClInclude Include="Reservation.h" />
     <ClInclude Include="ReservationEquipment.h" />
     <ClInclude Include="StringOperations.h" />
+    <ClInclude Include="UnitOfView.h" />
     <ClInclude Include="User.h" />
-    <ClInclude Include="PrimmaryView.h" />
+    <ClInclude Include="PrimaryView.h" />
     <ClInclude Include="UserPanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

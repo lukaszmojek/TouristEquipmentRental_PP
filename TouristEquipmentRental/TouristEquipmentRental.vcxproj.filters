@@ -42,13 +42,19 @@
     <ClCompile Include="DatabaseOperator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PrimmaryView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SignInUpView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GlobalOperator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitOfView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrimaryView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,13 +83,19 @@
     <ClInclude Include="DatabaseOperator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PrimmaryView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SignInUpView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GlobalOperator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitOfView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimaryView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

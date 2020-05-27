@@ -32,20 +32,21 @@ void SignInUpView::RenderLoginView() {
 
     style.SetColor(13);
     style.CreateSeparator(30, '*');
-    cout << "   LOGOWANIE " << endl; cout << endl;
+    cout << " LOGOWANIE\n\n";
     style.CreateSeparator(30, '*');
 
     style.SetColor(10);
     cout << " EMAIL: ";
     cin >> email;
     cout << endl;
-    cout << " HASLO: ";
+    cout << " \nHASLO: ";
+
     while (c != 13) {       //TODO: Naprawic backspace
         c = _getch();
-            if (c != 13) {
-                password += c;
-                cout << "*";
-            }
+        if (c != 13) {
+            password += c;
+            cout << "*";
+        }
         
     }
     cout << endl;
@@ -101,9 +102,7 @@ void SignInUpView::RenderRegisterView() {
 
     }
 
-    cin >> password;
     cout << endl;
-
 
     _TypedID        = userID;
     _TypedPassword  = password;

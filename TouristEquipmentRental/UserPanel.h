@@ -2,7 +2,7 @@
 #define UserPanel_H
 #include <iostream>
 #include "User.h";
-#include "PrimmaryView.h"
+#include "PrimaryView.h"
 #include "GlobalOperator.h"
 
 
@@ -11,7 +11,8 @@ using namespace std;
 class UserPanel {
 private:
 	GlobalOperator style;
-	PrimmaryView start;
+	PrimaryView start;
+
 public:
 
 	void RenderUserMenu(User);

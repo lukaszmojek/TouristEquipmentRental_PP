@@ -47,7 +47,7 @@ void UserPanel::RenderUserMenu(User user) {
             //TODO: Navigation();
             break;
         case '4':
-            start.RenderStartView();
+            //start.RenderStartView(); // TODO: How to inject SignInUpView here?
             break;
 
         default: cout << "Nie ma takiej opcji w menu!";
