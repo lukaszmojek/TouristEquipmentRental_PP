@@ -1,37 +1,63 @@
 #include <iostream>
+#include <cwchar>
 #include "FileDatabase.h"
+#include "PrimmaryView.h"
+#include "UserPanel.h"
 #include "DatabaseOperator.h"
+#include "GlobalOperator.h"
+#include "SignInUpView.h"
 
-using namespace std;
 
-int main()
-{
+
+int main(int argc, char** argv)
+{	
+	GlobalOperator style;
+	PrimmaryView Start;
+	SignInUpView Login, Register;
+
+	UserPanel UserPanel;
+
     auto fileDatabase = new FileDatabase();
 
-    auto databaseOperator = new DatabaseOperator(* fileDatabase);
+	auto databaseOperator = new DatabaseOperator(*fileDatabase);
+	
+	style.SetFont(24,0);
 
-    try
-    {
-        auto user = databaseOperator->GetUser("ratatata@gmail.com", "kowalstwo");
-        //auto user = databaseOperator->GetUser("Test@test.com", "dupa123");
-        //auto user = databaseOperator->GetUser("dawid.blacha@gmail.com", "zaq123");
+	Start.RenderStartView();
+		system("cls");
+		Login.RenderLoginView();
+		/*Sgin In*/
+		try
+		{
+			auto user = databaseOperator->GetUser(Login.GetEmail(), Login.GetPassword());
+			if ((user.Id()[0] == 'A') && (user.Activated() == true)) {
+				style.Delay(1.5);
+				cout << "Zalogowano pomyslnie do panelu administratora" << endl;
+				//AdminPanel.RenderAdminMenu();
+			} 
+			if ((user.Id()[0] == 'U') && (user.Activated() == true)) {
+				style.Delay(1.5);
+				cout << "Zalogowano pomyslnie do panelu uzytkownika" << endl;
+				UserPanel.RenderUserMenu(user);
+			}	
+		}
+		catch (exception e)
+		{
+			cout << endl;
 
-        auto reservations = databaseOperator->GetUserReservations(user.Id());
+			style.SetColor(4);
+			style.Delay(1.5);
 
-        for (auto reservation : reservations)
-        {
-            auto reservationEquipment = databaseOperator->GetReservationEquipment(reservation.Id());
-            reservation.AssignEquipmentToReservation(reservationEquipment);
-            user.AssignReservationToUser(reservation);
-        }
+			cout << e.what();
 
-        ;
-    }
-    catch (exception e)
-    {
-        cout << e.what();
-    }
-    
+			style.Delay(1.5);
 
-    return 0;
+			cout << endl;
+
+			system("cls");
+			Login.RenderLoginView();
+			
+		}
+		return 0;
+	
 }
