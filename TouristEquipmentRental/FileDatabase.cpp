@@ -16,7 +16,7 @@ FileDatabase::FileDatabase(
 	_reservationsFileName = reservationsFileName;
 	_reservationEquipmentFileName = reservationEquipmentFileName;
 	_separator = separator;
-	_fileOperations = * new FileOperations();
+	_fileOperations = *new FileOperations();
 
 	Initialize();
 }
@@ -73,9 +73,13 @@ vector<DATA_TYPE> FileDatabase::ReadData(string fileName)
 	while (!file.eof())
 	{
 		getline(file, serializedRecord);
-		auto record = DATA_TYPE::Deserialize(serializedRecord, _separator);
 
-		data.push_back(record);
+		if (serializedRecord != "")
+		{
+			auto record = DATA_TYPE::Deserialize(serializedRecord, _separator);
+
+			data.push_back(record);
+		}
 	}
 
 	file.close();
