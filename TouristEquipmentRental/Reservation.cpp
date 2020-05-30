@@ -61,7 +61,7 @@ string Reservation::EndDate()
     return _endDate;
 }
 
-void Reservation::AssignEquipmentToReservation(list<Equipment> equipment)
+void Reservation::AssignEquipmentToReservation(vector<Equipment> equipment)
 {
     for (auto eq : equipment)
     {

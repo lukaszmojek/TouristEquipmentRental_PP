@@ -16,6 +16,7 @@ int main(int argc, char** argv)
 
 	unitOfView.LoadMenu();
 
+	//TODO: Move this logic to separate class (eg. ProgramFlow)
 	if (unitOfView.SigningOnIn().isRegisterMode)
 	{
 		auto newUser = * new User(

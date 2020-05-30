@@ -14,7 +14,7 @@ class Reservation
     string _userId;
     string _startDate;
     string _endDate;
-    list<Equipment> _equipment;
+    vector<Equipment> _equipment;
 
 public:
     Reservation(string id, string userId, string startDate, string endDate);
@@ -31,7 +31,7 @@ public:
 
     string EndDate();
 
-    void AssignEquipmentToReservation(list<Equipment> equipment);
+    void AssignEquipmentToReservation(vector<Equipment> equipment);
 };
 
 #endif // RESERVATION_H
