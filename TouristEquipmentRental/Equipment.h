@@ -17,7 +17,7 @@ public:
 
     string Name();
 
-    stringstream Serialize(char separator);
+    string Serialize(char separator);
 
     static Equipment Deserialize(string serializedData, char separator);
 };

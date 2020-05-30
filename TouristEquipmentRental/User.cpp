@@ -67,7 +67,7 @@ void User::AssignReservationToUser(Reservation reservation)
     _reservations.push_back(reservation);
 }
 
-stringstream User::Serialize(char separator)
+string User::Serialize(char separator)
 {
     stringstream user;
 
@@ -78,7 +78,7 @@ stringstream User::Serialize(char separator)
          << _password << separator
          << _activated;
 
-    return user;
+    return user.str();
 }
 
 User User::Deserialize(string serializedData, char separator)

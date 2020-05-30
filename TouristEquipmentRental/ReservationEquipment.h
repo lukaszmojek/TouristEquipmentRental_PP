@@ -14,7 +14,7 @@ class ReservationEquipment
 public:
     ReservationEquipment(string id, string reservationId, string equimpentId);
 
-    stringstream Serialize(char separator);
+    string Serialize(char separator);
 
     static ReservationEquipment Deserialize(string serializedData, char separator);
 

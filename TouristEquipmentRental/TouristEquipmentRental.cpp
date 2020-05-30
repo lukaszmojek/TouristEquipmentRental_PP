@@ -5,8 +5,6 @@
 #include "GlobalOperator.h"
 #include "UnitOfView.h"
 
-
-
 int main(int argc, char** argv)
 {	
 	auto fileDatabase = * new FileDatabase();
@@ -17,6 +15,19 @@ int main(int argc, char** argv)
 	style.SetFont(24,0);
 
 	unitOfView.LoadMenu();
+
+	if (unitOfView.SigningOnIn().isRegisterMode)
+	{
+		auto newUser = * new User(
+			unitOfView.SigningOnIn().GetId(),
+			unitOfView.SigningOnIn().GetFirstName(),
+			unitOfView.SigningOnIn().GetLastName(),
+			unitOfView.SigningOnIn().GetEmail(),
+			unitOfView.SigningOnIn().GetPassword()
+		);
+
+		databaseOperator.AddUser(newUser);
+	}
 
 	/*Sign In*/
 	try

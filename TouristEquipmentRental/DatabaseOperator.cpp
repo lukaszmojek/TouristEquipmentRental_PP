@@ -9,7 +9,7 @@ User DatabaseOperator::GetUser(string email, string password)
 {
 	for (auto user : _databaseContext.GetUsers())
 	{
-		if (user.Email() == email & user.Password() == password)
+		if (user.Email() == email && user.Password() == password)
 		{
 			if (user.Activated() != 0) {
 				return user;
@@ -22,6 +22,29 @@ User DatabaseOperator::GetUser(string email, string password)
 	}
 
 	throw exception("Wrong email or password!");
+}
+
+bool DatabaseOperator::AddUser(User userToAdd)
+{
+	for (auto user : _databaseContext.GetUsers())
+	{
+		if (user.Id() == userToAdd.Id() || user.Email() == userToAdd.Email())
+		{
+			return false;
+		}
+	}
+
+	try 
+	{
+		_databaseContext.AddUser(userToAdd);
+		_databaseContext.SaveChanges();
+
+		return true;
+	}
+	catch (exception e)
+	{
+	
+	}
 }
 
 list<Reservation> DatabaseOperator::GetUserReservations(string userId)

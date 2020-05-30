@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <list>
+#include <vector>
 #include "User.h"
 #include "Equipment.h"
 #include "Reservation.h"
@@ -23,15 +24,18 @@ private:
 
     FileOperations _fileOperations;
 
-    list<User> _users;
-    list<Equipment> _equimpent;
-    list<Reservation> _reservations;
-    list<ReservationEquipment> _reservationsEquipment;
+    vector<User> _users;
+    vector<Equipment> _equimpent;
+    vector<Reservation> _reservations;
+    vector<ReservationEquipment> _reservationsEquipment;
 
     void Initialize();
 
     template <class DATA_TYPE>
-    list<DATA_TYPE> ReadData(string fileName);
+    vector<DATA_TYPE> ReadData(string fileName);
+    
+    template <class DATA_TYPE>
+    void SaveData(string fileName, vector<DATA_TYPE> data);
 
 public:
     FileDatabase(
@@ -41,13 +45,17 @@ public:
             string reservationEquipmentFileName = "reservation_equimpent.txt",
             char separator = ';');
 
-    list<User> GetUsers();
+    vector<User> GetUsers();
 
-    list<Equipment> GetEquimpent();
+    void AddUser(User newUser);
 
-    list<Reservation> GetReservations();
+    vector<Equipment> GetEquimpent();
 
-    list<ReservationEquipment> GetReservationEquimpent();
+    vector<Reservation> GetReservations();
+
+    vector<ReservationEquipment> GetReservationEquimpent();
+
+    void SaveChanges();
 };
 
 #endif // FILEDATABASE_H

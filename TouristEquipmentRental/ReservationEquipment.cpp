@@ -14,7 +14,7 @@ ReservationEquipment::ReservationEquipment(string id, string reservationId, stri
     _equipmentId = equimpentId;
 }
 
-stringstream ReservationEquipment::Serialize(char separator)
+string ReservationEquipment::Serialize(char separator)
 {
     stringstream reservationEquipment;
 
@@ -22,7 +22,7 @@ stringstream ReservationEquipment::Serialize(char separator)
          << _reservationId << separator
          << _equipmentId;
 
-    return reservationEquipment;
+    return reservationEquipment.str();
 }
 
 ReservationEquipment ReservationEquipment::Deserialize(string serializedData, char separator)

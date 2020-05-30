@@ -18,7 +18,7 @@ class User
     list<Reservation> _reservations;
 
 public:
-    User(string id, string firstName, string lastname, string email, string password, string activated);
+    User(string id, string firstName, string lastname, string email, string password, string activated = "0");
 
     string Id();
 
@@ -38,7 +38,7 @@ public:
 
     void AssignReservationToUser(Reservation reservation);
 
-    stringstream Serialize(char separator);
+    string Serialize(char separator);
 
     static User Deserialize(string serializedData, char separator);
 };

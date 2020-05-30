@@ -16,7 +16,7 @@ Reservation::Reservation(string id, string userId, string startDate, string endD
     _endDate = endDate;
 }
 
-stringstream Reservation::Serialize(char separator)
+string Reservation::Serialize(char separator)
 {
     stringstream reservation;
 
@@ -25,7 +25,7 @@ stringstream Reservation::Serialize(char separator)
          << _startDate << separator
          << _endDate;
 
-    return reservation;
+    return reservation.str();
 }
 
 Reservation Reservation::Deserialize(string serializedData, char separator)

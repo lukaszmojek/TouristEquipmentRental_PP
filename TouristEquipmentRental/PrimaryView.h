@@ -10,11 +10,9 @@ class PrimaryView
 {
 private:
 	GlobalOperator style;
-	
-	void MenuSelect(char, SignInUpView signInOnView);
 
 public:
-	void RenderStartView(SignInUpView signInOnView);
+	char RenderStartView();
 };
 
 #endif //PrimmaryView_H

@@ -10,6 +10,8 @@ public:
 
 	User GetUser(string email, string password);
 
+	bool AddUser(User userToAdd);
+
 	list<Reservation> GetUserReservations(string userId);
 
 	list<Equipment> GetReservationEquipment(string reservationId);

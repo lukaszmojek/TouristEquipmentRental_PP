@@ -16,8 +16,10 @@ private:
 
 	GlobalOperator style;
 
-
 public:
+	bool isLoginMode;
+	bool isRegisterMode;
+
 	string GetId();
 
 	string GetPassword();

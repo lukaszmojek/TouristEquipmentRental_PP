@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void PrimaryView::RenderStartView(SignInUpView signInUpView) {
+char PrimaryView::RenderStartView() {
     char choice;
 
     style.SetColor(13);
@@ -29,30 +29,5 @@ void PrimaryView::RenderStartView(SignInUpView signInUpView) {
     cin >> choice;
     system("cls");
 
-    MenuSelect(choice, signInUpView);
-}
-
-void PrimaryView::MenuSelect(char choice, SignInUpView signInUpView) {
-
-    string Log, Reg;
-
-    switch (choice)
-    {
-    case '1':
-        signInUpView.RenderLoginView();
-        break;
-
-    case '2':
-        signInUpView.RenderRegisterView();
-        break;
-
-    case '3':
-        exit(0);
-        break;
-
-    default: 
-        cout << "Nie ma takiej opcji w menu!";
-    };
-
-    system("cls");
+    return choice;
 }

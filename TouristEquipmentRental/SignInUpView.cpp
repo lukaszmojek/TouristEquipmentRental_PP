@@ -26,6 +26,8 @@ string SignInUpView::GetEmail() {
 }
 
 void SignInUpView::RenderLoginView() {
+    isLoginMode = true;
+    isRegisterMode = !isLoginMode;
 
     string email, password;
     char c = ' ';
@@ -49,6 +51,7 @@ void SignInUpView::RenderLoginView() {
         }
         
     }
+
     cout << endl;
 
     _TypedEmail = email;
@@ -61,6 +64,8 @@ void SignInUpView::RenderLoginView() {
 }
 
 void SignInUpView::RenderRegisterView() {
+    isRegisterMode = true;
+    isLoginMode = !isRegisterMode;
 
     string  userID,
             password,
@@ -99,7 +104,6 @@ void SignInUpView::RenderRegisterView() {
             password += c;
             cout << "*";
         }
-
     }
 
     cout << endl;

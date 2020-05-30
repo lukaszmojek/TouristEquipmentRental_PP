@@ -19,7 +19,7 @@ class Reservation
 public:
     Reservation(string id, string userId, string startDate, string endDate);
 
-    stringstream Serialize(char separator);
+    string Serialize(char separator);
 
     static Reservation Deserialize(string serializedData, char separator);
 

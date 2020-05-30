@@ -14,12 +14,9 @@ private:
 	PrimaryView start;
 
 public:
-
 	void RenderUserMenu(User);
 
 	void ShowUserData(User);
-
-
 };
 
 #endif // UserPanel_H

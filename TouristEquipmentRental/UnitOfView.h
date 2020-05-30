@@ -10,7 +10,8 @@ private:
 	PrimaryView _startView;
 	SignInUpView _signInUpView;
 	UserPanel _userPanel;
-
+	
+	void MenuSelect(char choice);
 public:
 	UnitOfView() {
 		_startView = * new PrimaryView();
@@ -31,7 +32,8 @@ public:
 	}
 
 	void LoadMenu() {
-		_startView.RenderStartView(_signInUpView);
+		char choice = _startView.RenderStartView();
+		MenuSelect(choice);
 	}
 };
 

@@ -20,10 +20,7 @@ bool FileOperations::saveDataToFile(fstream file, DATA_TYPE data)
 {
     try
     {
-        for (auto record : data)
-        {
-            file << data.toString();
-        }
+        file << data.Serialize() << endl;
 
         return true;
     }

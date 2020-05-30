@@ -22,14 +22,14 @@ string Equipment::Name()
     return _name;
 }
 
-stringstream Equipment::Serialize(char separator)
+string Equipment::Serialize(char separator)
 {
     stringstream reservationEquipment;
 
     reservationEquipment << _id << separator
          << _name;
 
-    return reservationEquipment;
+    return reservationEquipment.str();
 }
 
 Equipment Equipment::Deserialize(string serializedData, char separator)
