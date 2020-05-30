@@ -2,7 +2,7 @@
 #define RESERVATION_H
 
 #include <iostream>
-#include <list>
+#include <vector>
 
 #include "Equipment.h"
 

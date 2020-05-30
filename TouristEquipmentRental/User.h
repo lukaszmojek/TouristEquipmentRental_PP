@@ -2,6 +2,7 @@
 #define USER_H
 
 #include <iostream>
+#include <vector>
 #include "Reservation.h"
 
 using namespace std;
@@ -15,7 +16,7 @@ class User
     string _password;
     bool _activated;
     string _type;
-    list<Reservation> _reservations;
+    vector<Reservation> _reservations;
 
 public:
     User(string id, string firstName, string lastname, string email, string password, string activated = "0");
