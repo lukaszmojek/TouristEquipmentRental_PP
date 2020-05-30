@@ -1,4 +1,4 @@
 U999;Przemyslaw;Saja;user@gmail.com;user;1
 U420;Michal;Ziem;ratatata@gmail.com;kowalstwo;1
-A69D;Lukasz;Mojek;Test@test.com;dupa123;1
+A69D;Lukasz;Mojek;Test@test.com;mocneHaslo123;1
 U435;Dawid;Blacha;dawid.blacha@gmail.com;zaq123;0
