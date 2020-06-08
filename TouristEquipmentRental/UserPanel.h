@@ -1,10 +1,15 @@
 #ifndef UserPanel_H
 #define UserPanel_H
-#include <iostream>
-#include "User.h";
-#include "PrimaryView.h"
-#include "GlobalOperator.h"
 
+#include <iostream>
+#include <Windows.h>
+#include <iomanip>
+#include <string>
+
+#include "GlobalOperator.h"
+#include "PrimaryView.h"
+#include "DatabaseOperator.h"
+#include "RentEquipmentView.h"
 
 using namespace std;
 
@@ -14,9 +19,16 @@ private:
 	PrimaryView start;
 
 public:
-	void RenderUserMenu(User);
 
-	void ShowUserData(User);
+	void RenderUserMenu(User user);
+
+	void ShowUserData(User user );
+
+	void ShowUserReservations(User user);
+
+	void RenderNavigationBar(User user, int width);
+
+	void RentEquipmentFlow(User user);
 };
 
 #endif // UserPanel_H

@@ -1,6 +1,10 @@
 #ifndef PrimmaryView_H
 #define PrimmaryView_H
+
 #include <iostream>
+#include <string>
+#include <iomanip>
+
 #include "GlobalOperator.h"
 #include "SignInUpView.h"
 

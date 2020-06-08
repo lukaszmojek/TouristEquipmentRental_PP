@@ -1,6 +1,26 @@
 EQ001;Namiot
 EQ002;Spiwor
-EQ003;Plecak
+EQ003;Plecak zwykly
 EQ004;Ponton
 EQ005;Radiotelefony
-EQ401;Telefon satelitarny
+EQ006;Telefon satelitarny
+EQ007;Kajak
+EQ008;Latarka
+EQ009;Kombinezon
+EQ010;Kask
+EQ011;Naramienniki
+EQ012;Kompas
+EQ013;Scyzoryk
+EQ014;Noz mysliwski
+EQ015;Wiatrowka
+EQ016;Wiosla
+EQ017;Bidon
+EQ018;Odziez ochronna
+EQ019;Koc termiczny
+EQ020;Apteczka
+EQ021;Plecak turystyczny
+EQ022;Kijki trekkingowe
+EQ023;Bielizna termoaktywna
+EQ024;Wodoodporne etui
+EQ025;Pokrowiec na dokumenty
+EQ026;Latarka czolowa.
