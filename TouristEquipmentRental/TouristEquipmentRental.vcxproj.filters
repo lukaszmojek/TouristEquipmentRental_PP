@@ -57,6 +57,12 @@
     <ClCompile Include="PrimaryView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RentEquipmentView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgramFlow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Equipment.h">
@@ -96,6 +102,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PrimaryView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RentEquipmentView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgramFlow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

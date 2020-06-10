@@ -2,6 +2,7 @@
 #include "SignInUpView.h"
 #include "GlobalOperator.h"
 #include <conio.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -26,24 +27,35 @@ string SignInUpView::GetEmail() {
 }
 
 void SignInUpView::RenderLoginView() {
+
     isLoginMode = true;
     isRegisterMode = !isLoginMode;
 
     string email, password;
     char c = ' ';
 
-    style.SetColor(13);
-    style.CreateSeparator(30, '*');
-    cout << " LOGOWANIE\n\n";
-    style.CreateSeparator(30, '*');
 
-    style.SetColor(10);
-    cout << " EMAIL: ";
+    style.SetColor(102);
+    style.CreateSeparator(55, ' ');
+
+    style.SetColor(14);
+    cout << setfill(' ') << setw(35) << " LOGOWANIE \n \n";
+
+    style.SetColor(102);
+    style.CreateSeparator(55, ' ');
+
+    style.SetColor(3);
+    cout << setfill(' ') << setw(20) << " EMAIL: ";
+
+    style.SetColor(14);
     cin >> email;
     cout << endl;
-    cout << " \nHASLO: ";
 
-    while (c != 13) {       //TODO: Naprawic backspace
+    style.SetColor(3);
+    cout << setw(20) <<"HASLO: ";
+
+    style.SetColor(14);
+    while (c != 13) {      
         c = _getch();
         if (c != 13) {
             password += c;
@@ -52,15 +64,14 @@ void SignInUpView::RenderLoginView() {
         
     }
 
-    cout << endl;
-
     _TypedEmail = email;
     _TypedPassword = password;
 
     style.SetColor(11);
-    cout << endl;
-    cout << "Sprawdzanie poprawnoscii wprowadzonych danych..." << endl;
-    style.CreateSeparator(50, '-');
+    cout << "\n\n\nSprawdzanie poprawnoscii wprowadzonych danych..." << endl;
+
+    style.Delay(1);
+    style.CreateSeparator(50, '=');
 }
 
 void SignInUpView::RenderRegisterView() {
@@ -75,29 +86,44 @@ void SignInUpView::RenderRegisterView() {
 
     char c = ' ';
 
-    style.SetColor(5);
-    style.CreateSeparator(30, '*');
-    cout << "   REJESTRACJA " << endl; cout << endl;
-    style.CreateSeparator(30, '*');
+    style.SetColor(102);
+    style.CreateSeparator(55, ' ');
 
     style.SetColor(14);
-    cout << " ID UZYTKOWNIKA: ";
+    cout << setfill(' ') << setw(35) << "REJESTRACJA\n\n";
+
+    style.SetColor(102);
+    style.CreateSeparator(55, ' ');
+    cout << setfill(' ');
+
+    style.SetColor(3);
+    cout << setw(20) << "ID UZYTKOWNIKA: ";
+    style.SetColor(14);
     cin >> userID;
     cout << endl;
 
-    cout << " IMIE: ";
+    style.SetColor(3);
+    cout << setw(20) << " IMIE: ";
+    style.SetColor(14);
     cin >> firstname;
     cout << endl;
 
-    cout << " NAZWISKO: ";
+    style.SetColor(3);
+    cout << setw(20) << " NAZWISKO: ";
+    style.SetColor(14);
     cin >> lastname;
     cout << endl;
 
-    cout << " EMAIL: ";
+    style.SetColor(3);
+    cout << setw(20) << " EMAIL: ";
+    style.SetColor(14);
     cin >> email;
     cout << endl;
 
-    cout << " HASLO: ";
+    style.SetColor(3);
+    cout << setw(20) << " HASLO: ";
+    style.SetColor(14);
+
     while (c != 13) {
         c = _getch();
         if (c != 13) {
@@ -106,16 +132,9 @@ void SignInUpView::RenderRegisterView() {
         }
     }
 
-    cout << endl;
-
     _TypedID        = userID;
     _TypedPassword  = password;
     _TypedFirstName = firstname;
     _TypedLastName  = lastname;
     _TypedEmail     = email;
-
-    style.SetColor(11);
-    cout << endl;
-    cout << "Sprawdzanie poprawnoscii wprowadzonych danych..." << endl;
-    style.CreateSeparator(50, '-');
 }

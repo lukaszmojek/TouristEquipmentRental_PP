@@ -1,116 +1,166 @@
 #include "UserPanel.h"
-#include <Windows.h>
-#include <iomanip>
-#include <string>
-#include <iostream>
 
+char UserPanel::RenderUserMenu() {
 
+    char choice;
+    string Log, Reg;
 
-void UserPanel::RenderUserMenu(User user) {
-        system("cls");
-        style.SetColor(13);
-        style.CreateSeparator(30, '*');
-        cout << "   PANEL UZYTKOWNIKA " << endl; cout << endl;
-        style.CreateSeparator(30, '*');
+    system("cls");
 
+    style.SetColor(102);
+    style.CreateSeparator(55, ' ');
 
-        style.SetColor(11);
-        cout << "  > Wybierz operacje < " << endl;
-        cout << endl;
-        style.SetColor(14);
-        cout << "1) Dane konta" << endl;
-        cout << "2) Moje rezerwacje" << endl;
-        cout << "3) Zarezerwuj sprzet" << endl;
-        cout << "4) Wyloguj " << endl;
-        cout << endl;
-        style.SetColor(11);
+    style.SetColor(14);
+    cout << setfill(' ') << setw(37) << "PANEL UZYTKOWNIKA\n\n";
 
-        string Log, Reg;
-        char choice;
+    style.SetColor(102);
+    style.CreateSeparator(55, ' ');
 
-        cout << "Przejdz do operacji nr: ";
-        cin >> choice;
+    style.SetColor(11);
+    cout << setfill(' ') << setw(37) << "  > Wybierz operacje < " << endl;
+    cout << endl;
 
-        switch (choice)
-        {
-        case '1':
-            ShowUserData(user);
-            //TODO: Navigation();
-            break;
+    style.SetColor(14);
+    cout << setw(15) << "1." << setw(23) << "Dane konta" << endl;
+    cout << setw(15) << "2." << setw(23) << "Moje rezerwacje" << endl;
+    cout << setw(15) << "3." << setw(23) << "Zarezerwuj sprzet" << endl;
+    cout << setw(15) << "4." << setw(23) << "Wyjdz" << endl;
+    cout << endl;
 
-        case '2':
-            //TODO:ShowUserRezervations();
-            //TODO: Navigation();
-            break;
-        case '3':
-            //TODO:RentEquipment()
-            //TODO: Navigation();
-            break;
-        case '4':
-            //start.RenderStartView(); // TODO: How to inject SignInUpView here?
-            break;
+    style.SetColor(11);
+    style.CreateSeparator(55, '_');
+    cout << setfill(' ') << setw(37) << "Przejdz do operacji nr: ";
 
-        default: cout << "Nie ma takiej opcji w menu!";
-        };
+    style.SetColor(14);
+    cin >> choice;
 
-        
-    }
+    return choice;
+}
 void UserPanel::ShowUserData(User user) {
 
     system("cls");
 
-    int  primmaryC = 11,
-         secconadryC = 14,
-         fieldLentgth = 30;
+    int fieldLentgth = 30;
 
-    /*separator*/
     style.SetColor(102);
     style.CreateSeparator(50, ' ');
-    style.SetColor(primmaryC);
+    style.SetColor(11);
 
-    /*Konto*/
     cout << endl;
-    cout <<setfill(' ') << setw(15) << "KONTO:" << setw(fieldLentgth);
-    style.SetColor(secconadryC);
+    cout << setfill(' ') << setw(15) << "RODZAJ KONTA:" << setw(fieldLentgth);
+    style.SetColor(14);
     (user.Id()[0] == 'A') ? cout << "ADMINISTRATOR" << endl : cout << "UZYTKOWNIK" << endl << endl;
 
-    /*Status konta*/
-    style.SetColor(primmaryC);
-    cout << setw(15) << "STATUS KONTA:" << setw(fieldLentgth); 
-    style.SetColor(secconadryC);
-    if (user.Activated() == true) {
+    style.SetColor(11);
+    cout << setw(15) << "STATUS KONTA:" << setw(fieldLentgth);
+    style.SetColor(14);
+
+    if (user.Activated()) {
         style.SetColor(2);
-        cout << "AKTYWOWANY" << endl;
+        cout << "AKTYWOWANY\n" << endl;
     }
     else {
         style.SetColor(4);
-        cout << "NIEAKTYWNY" << endl;
+        cout << "NIEAKTYWNY\n" << endl;
     }
-    cout << endl;
 
-    /*Imie*/
-    style.SetColor(primmaryC);
-    cout << setw(15) << "IMIE:" << setw(fieldLentgth);  
-    style.SetColor(secconadryC);
-    cout<< user.FirstName() << endl << endl;            
-    style.SetColor(primmaryC);
+    style.SetColor(11);
+    cout << setw(15) << "IMIE:" << setw(fieldLentgth);
+    style.SetColor(14);
+    cout << user.FirstName() << endl << endl;
 
-    /*Nazwisko*/
+    style.SetColor(11);
     cout << setw(15) << "NAZWISKO:" << setw(fieldLentgth);
-    style.SetColor(secconadryC);
+    style.SetColor(14);
     cout << user.LastName() << endl << endl;
-    style.SetColor(primmaryC);
 
-    /*Email*/
-    cout << setw(15) << "EMAIL:" << setw(fieldLentgth); 
-    style.SetColor(secconadryC);
-    cout << user.Email() << endl << endl;                
+    style.SetColor(11);
+    cout << setw(15) << "EMAIL:" << setw(fieldLentgth);
+    style.SetColor(14);
+    cout << user.Email() << endl << endl;
     cout << endl;
 
-    /*separator*/
     style.SetColor(102);
     style.CreateSeparator(50, ' ');
-    style.SetColor(primmaryC);
+    style.SetColor(14);
+
+}
 
 
+void UserPanel::ShowUserReservations(User user) {
+
+    system("cls");
+
+    auto fileDatabase = new FileDatabase();
+    auto databaseOperator = new DatabaseOperator(*fileDatabase);
+    auto reservations = databaseOperator->GetUserReservations(user.Id());
+    int  fieldLentgth = 30;
+
+    style.SetColor(102);
+    style.CreateSeparator(110, ' ');
+    style.SetColor(11);
+
+    cout << endl;
+
+    cout << setfill(' ') << setw(20) << "NUMER REZERWACJI" << setw(fieldLentgth);
+    cout << setfill(' ') << setw(30) << "DATA ROZPOCZECIA WYNAJMU" << setw(fieldLentgth);
+    cout << setfill(' ') << setw(30) << "DATA ZAKONCZENIA WYNAJMU" << setw(fieldLentgth);
+    cout << setfill(' ') << setw(30) << "WYPOZYCZONY SPRZET" << setw(fieldLentgth);
+    cout << endl;
+
+    for (auto reservation : reservations) {
+
+        style.SetColor(14);
+        cout << endl;
+
+        cout << setfill(' ') << setw(20) << reservation.Id();
+        cout << setfill(' ') << setw(30) << reservation.StartDate();
+        cout << setfill(' ') << setw(30) << reservation.EndDate();
+
+        auto reservationEquipment = databaseOperator->GetReservationEquipment(reservation.Id());
+
+        cout << setfill(' ') << setw(30);
+        for (auto Equipment : reservationEquipment) {
+
+            cout << Equipment.Name() << setfill(' ') << setw(110) << endl;
+
+        }
+    }
+
+    cout << endl << endl;
+    style.SetColor(102);
+    style.CreateSeparator(110, ' ');
+    style.SetColor(11);
+}
+
+
+void UserPanel::RentEquipmentFlow(User user, FileDatabase filedatabase, vector<Reservation> reservations, vector<Equipment> equipment)
+{
+    auto RentEquipment = new RentEquipmentView;
+
+    RentEquipment->RenderEquipmentList(equipment);
+    RentEquipment->GetPickedEquipment(equipment);
+    RentEquipment->CreateReservation(user, reservations, equipment);
+}
+
+char UserPanel::RenderNavigationBar(int widht)
+{
+    int choice;
+
+    cout << endl << endl << endl;
+    style.SetColor(11);
+    style.CreateSeparator(widht, '_');
+
+    style.SetColor(14);
+    cout << "[1] Wroc do menu" << setfill(' ') << setw(widht - 15) << "[2] Wyjdz z aplikacji\n";
+
+    style.SetColor(11);
+    style.CreateSeparator(widht, '_');
+    cout << endl;
+    cout << "Przejdz do opracji nr: ";
+
+    style.SetColor(14);
+    cin >> choice;
+
+    return choice;
 }

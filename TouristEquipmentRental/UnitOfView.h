@@ -11,7 +11,10 @@ private:
 	SignInUpView _signInUpView;
 	UserPanel _userPanel;
 	
-	void MenuSelect(char choice);
+	void MainMenu(char choice);
+	void UserMenu(char choice, User user, FileDatabase filedatabase);
+	void NavigationBar(char choice, User user, FileDatabase filedatabase);
+
 public:
 	UnitOfView() {
 		_startView = * new PrimaryView();
@@ -33,7 +36,18 @@ public:
 
 	void LoadMenu() {
 		char choice = _startView.RenderStartView();
-		MenuSelect(choice);
+		MainMenu(choice);
 	}
+
+	void LoadUserMenu(User user, FileDatabase filedatabase) { 
+		char choice = _userPanel.RenderUserMenu();
+		UserMenu(choice, user, filedatabase);
+	}
+
+	void LoadNavigation(User user, int widht, FileDatabase filedatabase) {
+		char choice = _userPanel.RenderNavigationBar(widht);
+		NavigationBar(choice, user, filedatabase);
+	}
+
 };
 
