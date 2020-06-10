@@ -20,15 +20,16 @@ private:
 
 public:
 
-	void RenderUserMenu(User user);
+	char RenderUserMenu();
 
 	void ShowUserData(User user );
 
 	void ShowUserReservations(User user);
 
-	void RenderNavigationBar(User user, int width);
+	char RenderNavigationBar(int width);
 
-	void RentEquipmentFlow(User user);
+	void RentEquipmentFlow( User user, FileDatabase filedatabase, vector<Reservation> reservations, vector<Equipment> equipment );
 };
+
 
 #endif // UserPanel_H

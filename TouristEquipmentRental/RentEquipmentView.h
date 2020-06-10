@@ -12,17 +12,18 @@ using namespace std;
 
 class RentEquipmentView	{
 private:
+
 	int EquipmentNumber;
 	bool isEquipmentOnList;
 	GlobalOperator style;
 
 public:
 
-	void RenderEquipmentList();
+	void RenderEquipmentList(vector <Equipment> equipment);
 
-	vector<Equipment> GetPickedEquipment();
+	vector<Equipment> GetPickedEquipment(vector <Equipment> equipment);
 
-	void CreateReservation(User user);
+	void CreateReservation(User user, vector<Reservation> reservations, vector <Equipment> equipment);
 };
 
 #endif //RentEquipmentView_H

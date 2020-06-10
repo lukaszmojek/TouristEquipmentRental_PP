@@ -1,14 +1,11 @@
 #include "RentEquipmentView.h"
 
-void RentEquipmentView::RenderEquipmentList() {
+void RentEquipmentView::RenderEquipmentList(vector <Equipment> equipment) {
 
     system("cls");
 
-    auto fileDatabase = new FileDatabase();
-    auto equipment = fileDatabase->GetEquimpent();
     size_t pos{ 0 };
     vector<int> positions;
-
 
     style.SetColor(11);
     cout << setfill(' ') << endl;
@@ -37,10 +34,8 @@ void RentEquipmentView::RenderEquipmentList() {
     cout << endl;
 }
 
-vector<Equipment> RentEquipmentView::GetPickedEquipment() {
+vector<Equipment> RentEquipmentView::GetPickedEquipment(vector <Equipment> equipment) {
 
-    auto fileDatabase = new FileDatabase();
-    auto equipment = fileDatabase->GetEquimpent();
     vector<Equipment> SelectedEquipment;
 
     //TODO:multiple eq select 
@@ -55,12 +50,10 @@ vector<Equipment> RentEquipmentView::GetPickedEquipment() {
     }
 }
 
-void RentEquipmentView::CreateReservation(User user) {
-
-    auto fileDatabase = new FileDatabase();
+void RentEquipmentView::CreateReservation(User user, vector<Reservation> reservations, vector <Equipment> equipment)
+{
     stringstream ss;
-    string startDate,
-           endDate;
+    string startDate, endDate;
 
     if (isEquipmentOnList) {
         style.SetColor(11);
@@ -77,7 +70,6 @@ void RentEquipmentView::CreateReservation(User user) {
 
         try
         {
-            auto reservations = fileDatabase->GetReservations();
             int lastReservation = stoi(reservations.back().Id().substr(1, 3)) + 1;
             ss << lastReservation << endl;
             string lastReservationID = ss.str();
@@ -91,7 +83,7 @@ void RentEquipmentView::CreateReservation(User user) {
                 lastReservationID.insert(1, "0");
 
             auto newReservation = *new Reservation(lastReservationID, user.Id(), startDate, endDate);
-            newReservation.AssignEquipmentToReservation(GetPickedEquipment());
+            newReservation.AssignEquipmentToReservation(GetPickedEquipment(equipment));
             user.AssignReservationToUser(newReservation);
 
             style.SetColor(2);
@@ -101,7 +93,7 @@ void RentEquipmentView::CreateReservation(User user) {
 
             cout << setw(40) << " Zarezerwowales przedmiot ";
             style.SetColor(14);
-            cout << GetPickedEquipment()[0].Name();
+            cout << GetPickedEquipment(equipment)[0].Name();
 
             style.SetColor(3);
             cout << " w terminie "; 
@@ -115,8 +107,6 @@ void RentEquipmentView::CreateReservation(User user) {
             style.SetColor(14);
             cout<< endDate;
             cout << endl;
-
-            
 
         }
         catch (exception e)

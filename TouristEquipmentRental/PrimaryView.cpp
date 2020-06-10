@@ -15,7 +15,6 @@ char PrimaryView::RenderStartView() {
     style.SetColor(102);
     style.CreateSeparator(55, ' ');
 
-
     style.SetColor(11);
     cout << setfill(' ') << setw(37) << "  > Wybierz operacje < " << endl;
     cout << endl;
@@ -35,7 +34,5 @@ char PrimaryView::RenderStartView() {
     system("cls");
 
     return choice;
-
-
 
 }

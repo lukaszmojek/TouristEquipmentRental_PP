@@ -1,9 +1,9 @@
 #include "UserPanel.h"
 
-void UserPanel::RenderUserMenu(User user) {
+char UserPanel::RenderUserMenu() {
 
-    string Log, Reg;
     char choice;
+    string Log, Reg;
 
     system("cls");
 
@@ -34,29 +34,7 @@ void UserPanel::RenderUserMenu(User user) {
     style.SetColor(14);
     cin >> choice;
 
-    switch (choice)
-    {
-    case '1':
-        ShowUserData(user);
-        RenderNavigationBar(user, 50);
-        break;
-
-    case '2':
-        ShowUserReservations(user);
-        RenderNavigationBar(user, 110);
-        break;
-    case '3':
-        RentEquipmentFlow(user);
-        RenderNavigationBar(user, 110);
-        break;
-    case '4':
-        exit(0);
-        break;
-
-    default: cout << "Nie ma takiej opcji w menu!";
-    };
-
-
+    return choice;
 }
 void UserPanel::ShowUserData(User user) {
 
@@ -77,7 +55,7 @@ void UserPanel::ShowUserData(User user) {
     cout << setw(15) << "STATUS KONTA:" << setw(fieldLentgth);
     style.SetColor(14);
 
-    if (user.Activated() == true) {
+    if (user.Activated()) {
         style.SetColor(2);
         cout << "AKTYWOWANY\n" << endl;
     }
@@ -156,17 +134,18 @@ void UserPanel::ShowUserReservations(User user) {
 }
 
 
-void UserPanel::RentEquipmentFlow(User user)
+void UserPanel::RentEquipmentFlow(User user, FileDatabase filedatabase, vector<Reservation> reservations, vector<Equipment> equipment)
 {
     auto RentEquipment = new RentEquipmentView;
 
-    RentEquipment->RenderEquipmentList();
-    RentEquipment->CreateReservation(user);
+    RentEquipment->RenderEquipmentList(equipment);
+    RentEquipment->GetPickedEquipment(equipment);
+    RentEquipment->CreateReservation(user, reservations, equipment);
 }
 
-void UserPanel::RenderNavigationBar(User user, int widht)
+char UserPanel::RenderNavigationBar(int widht)
 {
-    int c;
+    int choice;
 
     cout << endl << endl << endl;
     style.SetColor(11);
@@ -181,17 +160,7 @@ void UserPanel::RenderNavigationBar(User user, int widht)
     cout << "Przejdz do opracji nr: ";
 
     style.SetColor(14);
-    cin >> c;
-    switch (c)
-    {
-    case 1:
-        RenderUserMenu(user);
-        break;
+    cin >> choice;
 
-    case 2:
-        exit(0);
-        break;
-
-    default: cout << "Nie ma takiej opcji w menu!";
-    }
+    return choice;
 }
