@@ -9,18 +9,25 @@
 class ProgramFlow
 {
 private:
-	UnitOfView unitOfView;
-	GlobalOperator style;
+	UnitOfView _unitOfView;
+	DatabaseOperator _databaseOperator;
+	GlobalOperator _style;
 
 public:
+	ProgramFlow(UnitOfView unitOfView, DatabaseOperator databaseOperator)
+	{
+		_unitOfView = unitOfView;
+		_databaseOperator = databaseOperator;
+		_style = * new GlobalOperator();
+	}
 
 	User NewUser();
 
-	User GetUser(DatabaseOperator databaseOperator);
+	User GetUser();
 
-	void SignIn(DatabaseOperator databaseOperator, FileDatabase filedatabase);
+	void SignIn();
 
-	void RenderApp(DatabaseOperator databaseOperator, FileDatabase filedatabase);
+	void RenderApp();
 
 };
 

@@ -13,9 +13,11 @@ using namespace std;
 class RentEquipmentView	{
 private:
 
-	int EquipmentNumber;
+	string EquipmentNumbersInput;
 	bool isEquipmentOnList;
 	GlobalOperator style;
+
+	bool DateIsValid(string date);
 
 public:
 
@@ -23,7 +25,7 @@ public:
 
 	vector<Equipment> GetPickedEquipment(vector <Equipment> equipment);
 
-	void CreateReservation(User user, vector<Reservation> reservations, vector <Equipment> equipment);
+	Reservation CreateReservation(User user, vector<Reservation> reservations, vector <Equipment> equipment);
 };
 
 #endif //RentEquipmentView_H

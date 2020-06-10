@@ -134,28 +134,32 @@ void UserPanel::ShowUserReservations(User user) {
 }
 
 
-void UserPanel::RentEquipmentFlow(User user, FileDatabase filedatabase, vector<Reservation> reservations, vector<Equipment> equipment)
+void UserPanel::RentEquipmentFlow(User user, DatabaseOperator databaseOperator, vector<Reservation> reservations, vector<Equipment> equipment)
 {
     auto RentEquipment = new RentEquipmentView;
 
     RentEquipment->RenderEquipmentList(equipment);
     RentEquipment->GetPickedEquipment(equipment);
-    RentEquipment->CreateReservation(user, reservations, equipment);
+    auto newReservation = RentEquipment->CreateReservation(user, reservations, equipment);
+
+    databaseOperator.AddReservation(newReservation);
+
+    databaseOperator.SaveChanges();
 }
 
-char UserPanel::RenderNavigationBar(int widht)
+char UserPanel::RenderNavigationBar(int width)
 {
     int choice;
 
     cout << endl << endl << endl;
     style.SetColor(11);
-    style.CreateSeparator(widht, '_');
+    style.CreateSeparator(width, '_');
 
     style.SetColor(14);
-    cout << "[1] Wroc do menu" << setfill(' ') << setw(widht - 15) << "[2] Wyjdz z aplikacji\n";
+    cout << "[1] Wroc do menu" << setfill(' ') << setw(width - 15) << "[2] Wyjdz z aplikacji\n";
 
     style.SetColor(11);
-    style.CreateSeparator(widht, '_');
+    style.CreateSeparator(width, '_');
     cout << endl;
     cout << "Przejdz do opracji nr: ";
 

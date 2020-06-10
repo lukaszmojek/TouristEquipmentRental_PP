@@ -1,10 +1,5 @@
 #include "DatabaseOperator.h"
 
-DatabaseOperator::DatabaseOperator(FileDatabase databaseContext)
-{
-	_databaseContext = databaseContext;
-}
-
 User DatabaseOperator::GetUser(string email, string password)
 {
 	for (auto user : _databaseContext.GetUsers())
@@ -22,6 +17,11 @@ User DatabaseOperator::GetUser(string email, string password)
 	}
 
 	throw exception("Wrong email or password!");
+}
+
+vector<User> DatabaseOperator::GetAllUsers()
+{
+	return _databaseContext.GetUsers();
 }
 
 bool DatabaseOperator::AddUser(User userToAdd)
@@ -47,9 +47,9 @@ bool DatabaseOperator::AddUser(User userToAdd)
 	}
 }
 
-list<Reservation> DatabaseOperator::GetUserReservations(string userId)
+vector<Reservation> DatabaseOperator::GetUserReservations(string userId)
 {
-	auto reservations = * new list<Reservation>();
+	auto reservations = * new vector<Reservation>();
 
 	for (auto reservation : _databaseContext.GetReservations())
 	{
@@ -62,10 +62,20 @@ list<Reservation> DatabaseOperator::GetUserReservations(string userId)
 	return reservations;
 }
 
-list<Equipment> DatabaseOperator::GetReservationEquipment(string reservationId)
+void DatabaseOperator::AddReservation(Reservation newReservation)
 {
-	auto equipmentIds = * new list<string>();
-	auto reservationEquipment = * new list<Equipment>();
+	_databaseContext.AddReservation(newReservation);
+}
+
+vector<Reservation> DatabaseOperator::GetAllReservations()
+{
+	return _databaseContext.GetReservations();
+}
+
+vector<Equipment> DatabaseOperator::GetReservationEquipment(string reservationId)
+{
+	auto equipmentIds = * new vector<string>();
+	auto reservationEquipment = * new vector<Equipment>();
 
 	for (auto equipmentReservations : _databaseContext.GetReservationEquimpent())
 	{
@@ -88,3 +98,15 @@ list<Equipment> DatabaseOperator::GetReservationEquipment(string reservationId)
 
 	return reservationEquipment;
 }
+
+vector<Equipment> DatabaseOperator::GetAllEquipment()
+{
+	return _databaseContext.GetEquimpent();
+}
+
+void DatabaseOperator::SaveChanges()
+{
+	_databaseContext.SaveChanges();
+}
+
+

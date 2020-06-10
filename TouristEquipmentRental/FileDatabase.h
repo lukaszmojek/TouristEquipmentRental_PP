@@ -49,6 +49,10 @@ public:
 
     void AddUser(User newUser);
 
+    void AddReservation(Reservation newReservation);
+
+    void AddEquimpent(Equipment equipment);
+
     vector<Equipment> GetEquimpent();
 
     vector<Reservation> GetReservations();

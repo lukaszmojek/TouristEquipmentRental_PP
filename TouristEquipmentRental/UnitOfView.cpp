@@ -23,26 +23,26 @@ void UnitOfView::MainMenu(char choice)
     system("cls");
 }
 
-void UnitOfView::UserMenu(char choice, User user, FileDatabase filedatabase){
+void UnitOfView::UserMenu(char choice, User user, DatabaseOperator databaseOperator){
 
-    auto reservations = filedatabase.GetReservations();
-    auto equipment = filedatabase.GetEquimpent();
+    auto reservations = databaseOperator.GetAllReservations();
+    auto equipment = databaseOperator.GetAllEquipment();
 
     switch (choice)
     {
     case '1':
         _userPanel.ShowUserData(user);
-        LoadNavigation(user, 50, filedatabase);
+        LoadNavigation(user, 50, databaseOperator);
         break;
 
     case '2':
         _userPanel.ShowUserReservations(user);
-        LoadNavigation(user, 110, filedatabase);
+        LoadNavigation(user, 110, databaseOperator);
         break;
 
     case '3':
-        _userPanel.RentEquipmentFlow(user, filedatabase, reservations, equipment);
-        LoadNavigation(user, 110, filedatabase);
+        _userPanel.RentEquipmentFlow(user, databaseOperator, reservations, equipment);
+        LoadNavigation(user, 110, databaseOperator);
         break;
 
     case '4':
@@ -56,12 +56,12 @@ void UnitOfView::UserMenu(char choice, User user, FileDatabase filedatabase){
     system("cls");
 }
 
-void UnitOfView::NavigationBar(char choice, User user, FileDatabase filedatabase) {
+void UnitOfView::NavigationBar(char choice, User user, DatabaseOperator databaseOperator) {
 
     switch (choice)
     {
     case 1:
-        LoadUserMenu(user, filedatabase);
+        LoadUserMenu(user, databaseOperator);
         break;
 
     case 2:

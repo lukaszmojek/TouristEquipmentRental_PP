@@ -7,15 +7,15 @@
 
 int main(int argc, char** argv)
 {	
-	ProgramFlow ProgramFlow;
-	GlobalOperator style;
-
 	auto fileDatabase = * new FileDatabase();
 	auto databaseOperator = * new DatabaseOperator(fileDatabase);
+	auto unitOfView = * new UnitOfView();
+	auto programFlow = * new ProgramFlow(unitOfView, databaseOperator);
+	auto style = * new GlobalOperator();
 
 	style.SetFont(24, 0);
 
-	ProgramFlow.RenderApp(databaseOperator, fileDatabase);
+	programFlow.RenderApp();
 
 	return 0;	
 }

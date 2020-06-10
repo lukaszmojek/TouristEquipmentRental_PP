@@ -12,8 +12,8 @@ private:
 	UserPanel _userPanel;
 	
 	void MainMenu(char choice);
-	void UserMenu(char choice, User user, FileDatabase filedatabase);
-	void NavigationBar(char choice, User user, FileDatabase filedatabase);
+	void UserMenu(char choice, User user, DatabaseOperator databaseOperator);
+	void NavigationBar(char choice, User user, DatabaseOperator databaseOperator);
 
 public:
 	UnitOfView() {
@@ -39,14 +39,14 @@ public:
 		MainMenu(choice);
 	}
 
-	void LoadUserMenu(User user, FileDatabase filedatabase) { 
+	void LoadUserMenu(User user, DatabaseOperator databaseOperator) { 
 		char choice = _userPanel.RenderUserMenu();
-		UserMenu(choice, user, filedatabase);
+		UserMenu(choice, user, databaseOperator);
 	}
 
-	void LoadNavigation(User user, int widht, FileDatabase filedatabase) {
+	void LoadNavigation(User user, int widht, DatabaseOperator databaseOperator) {
 		char choice = _userPanel.RenderNavigationBar(widht);
-		NavigationBar(choice, user, filedatabase);
+		NavigationBar(choice, user, databaseOperator);
 	}
 
 };

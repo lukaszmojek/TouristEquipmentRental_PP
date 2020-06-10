@@ -3,41 +3,40 @@
 User ProgramFlow::NewUser() {
 
 	auto newUser = *new User(
-		unitOfView.SigningOnIn().GetId(),
-		unitOfView.SigningOnIn().GetFirstName(),
-		unitOfView.SigningOnIn().GetLastName(),
-		unitOfView.SigningOnIn().GetEmail(),
-		unitOfView.SigningOnIn().GetPassword()
+		_unitOfView.SigningOnIn().GetId(),
+		_unitOfView.SigningOnIn().GetFirstName(),
+		_unitOfView.SigningOnIn().GetLastName(),
+		_unitOfView.SigningOnIn().GetEmail(),
+		_unitOfView.SigningOnIn().GetPassword()
 	);
 
 	return newUser;
 }
 
-User ProgramFlow::GetUser(DatabaseOperator databaseOperator) {
-
-	auto user = databaseOperator.GetUser(
-		unitOfView.SigningOnIn().GetEmail(),
-		unitOfView.SigningOnIn().GetPassword()
+User ProgramFlow::GetUser() {
+	auto user = _databaseOperator.GetUser(
+		_unitOfView.SigningOnIn().GetEmail(),
+		_unitOfView.SigningOnIn().GetPassword()
 	);
 
 	return user;
 }
 
-void ProgramFlow::SignIn(DatabaseOperator databaseOperator, FileDatabase filedatabase) {
-	if (GetUser(databaseOperator).Activated() == true)
+void ProgramFlow::SignIn() {
+	if (GetUser().Activated() == true)
 	{
-		if (GetUser(databaseOperator).Id()[0] == 'A')
+		if (GetUser().Id()[0] == 'A')
 		{
-			style.Delay(1.5);
+			_style.Delay(1.5);
 			cout << "Zalogowano pomyslnie do panelu administratora" << endl;
 			//AdminPanel.RenderAdminMenu();
 		}
-		else if (GetUser(databaseOperator).Id()[0] == 'U')
+		else if (GetUser().Id()[0] == 'U')
 		{
-			style.Delay(1.5);
+			_style.Delay(1.5);
 			cout << "Zalogowano pomyslnie do panelu uzytkownika" << endl;
 
-			unitOfView.LoadUserMenu(GetUser(databaseOperator), filedatabase);
+			_unitOfView.LoadUserMenu(GetUser(), _databaseOperator);
 		}
 	}
 	else
@@ -46,29 +45,28 @@ void ProgramFlow::SignIn(DatabaseOperator databaseOperator, FileDatabase filedat
 	}
 }
 
-void ProgramFlow::RenderApp(DatabaseOperator databaseOperator, FileDatabase filedatabase) {
+void ProgramFlow::RenderApp() {
 
-	unitOfView.LoadMenu();
+	_unitOfView.LoadMenu();
 
-	unitOfView.SigningOnIn().isRegisterMode ? databaseOperator.AddUser(NewUser()) : NULL;
+	_unitOfView.SigningOnIn().isRegisterMode ? _databaseOperator.AddUser(NewUser()) : NULL;
 
 	try {
-		SignIn(databaseOperator, filedatabase);
+		SignIn();
 	}
 	catch (exception e)
 	{
 		cout << endl;
-		style.SetColor(4);
-		style.Delay(1.5);
+		_style.SetColor(4);
+		_style.Delay(1.5);
 
 		cout << e.what();
 
-		style.Delay(1.5);
+		_style.Delay(1.5);
 
 		cout << endl;
 
 		system("cls");
-		unitOfView.SigningOnIn().RenderLoginView();
+		_unitOfView.SigningOnIn().RenderLoginView();
 	}
-
 }

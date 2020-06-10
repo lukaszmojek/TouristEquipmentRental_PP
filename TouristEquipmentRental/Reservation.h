@@ -31,6 +31,11 @@ public:
 
     string EndDate();
 
+    vector<Equipment> GetEquipment()
+    {
+        return _equipment;    
+    }
+
     void AssignEquipmentToReservation(vector<Equipment> equipment);
 };
 

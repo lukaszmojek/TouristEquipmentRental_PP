@@ -31,6 +31,18 @@ void FileDatabase::AddUser(User newUser)
 	_users.push_back(newUser);
 }
 
+void FileDatabase::AddReservation(Reservation newReservation)
+{
+	auto newId = _reservationsEquipment.back().Id();
+
+	for (auto equimpent : newReservation.GetEquipment())
+	{
+		_reservationsEquipment.push_back(* new ReservationEquipment(newId, newReservation.Id(), equimpent.Id()));
+	}
+
+	_reservations.push_back(newReservation);
+}
+
 vector<Reservation> FileDatabase::GetReservations()
 {
 	return _reservations;

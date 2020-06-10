@@ -28,7 +28,7 @@ public:
 
 	char RenderNavigationBar(int width);
 
-	void RentEquipmentFlow( User user, FileDatabase filedatabase, vector<Reservation> reservations, vector<Equipment> equipment );
+	void RentEquipmentFlow( User user, DatabaseOperator databaseOperator, vector<Reservation> reservations, vector<Equipment> equipment );
 };
 
 

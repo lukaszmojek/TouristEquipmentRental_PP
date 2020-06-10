@@ -23,4 +23,4 @@ EQ022;Kijki trekkingowe
 EQ023;Bielizna termoaktywna
 EQ024;Wodoodporne etui
 EQ025;Pokrowiec na dokumenty
-EQ026;Latarka czolowa.
+EQ026;Latarka czolowa
